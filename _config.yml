@@ -74,3 +74,7 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
+
+# Jekyll-Search settings
+# url: https://github.com/androiddevelop/jekyll-search
+Jekyll-Search: true             # 是否启用jekyll博客搜索插件
