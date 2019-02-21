@@ -1,0 +1,49 @@
+---
+title: Posts
+layout: default
+description: 不积跬步无以至千里，不积小流无以成江河。
+header-img: "img/posts-bg.jpg"
+header-mask: 0.5
+---
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" id="tag-heading">
+                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-preview">
+                <ul class="listing">
+                    {% for post in site.posts %}
+                        {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+                        {% if year != y %}
+                            {% assign year = y %}
+                            <h1 class="listing-seperator">{{ y }}年</h1>
+                        {% endif %}
+                        {% capture mon %}{{post.date | date:"%m"}}{% endcapture %}
+                        {% if month != mon %}
+                            {% assign month = mon %}
+                            <h3 class="listing-seperator">{{ mon }}月</h3>
+                        {% endif %}
+                        <li class="listing-item">
+                            <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                            <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+		</div>
+	</div>
+</div>
